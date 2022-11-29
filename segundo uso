@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Avaliação de ordenação.
+// Nome: Miguel Bregalda Ferrari.
+// Ordenação por selection sort.
+// Linguagem c.
+// O metodo funciona da seguinte forma, pega do 1 a ultima posição e achar o menor valor
+// dessa forma pega tal valor em sua posição e troca com o 1, logo em seguida pega da 2 a ultima posição
+//achando o menor valor e trocando com o 2, asssim sucessivamente.
+
+
+//cria uma função sem retorno, porque o resultado da função é o proprio vetor.
+
+void selecao(int vet [],int n){
+ // cria um for pra percorrer o vetor
+ // j = i +1 pois tudo que esta a esquerda ja esta ordenado.
+ // Precisa de uma variavel auxiliar
+ //i < n -1 pq o precisa percorrer ate a penultima posição.
+    int Menor, aux;
+
+
+        // Precisa de uma variavel auxiliar
+
+    for(int i = 0; i <n - 1; i++){
+           Menor= i;
+        for(int j= i+ 1 ; j <n;j++){
+            if (vet[Menor]> vet[j])
+                Menor= j;
+            //Para armazenar o valor do j
+        }
+       if ( i!= Menor){
+         aux= vet[i];
+         vet[i]= vet[Menor];
+         vet[Menor]=aux;
+         // isso foi feito para fazer a troca dos valores.
+       }
+
+ }
+
+
+}
+
+
+int main()
+{
+    // cria o vetor e um int para o tamanho do vetor.
+    // E declarar os valores do vetor
+    int n=9;
+    int vetor[9]= {3,6,5,1,2,8,7,9,4}; // 9 posições.
+
+    //cria uma função
+
+     selecao(vetor,n);
+     printf("\n\n");
+
+    // Cria um for para imprimir a ordenação
+    for(int i=0; i<n; i++){
+      printf("%d - ", vetor[i]);
+    }
+
+
+
+
+    system ("pause");
+    return 0;
+}
